@@ -1,6 +1,5 @@
 .gitignore
 .gitlab-ci.yml
-.openapi-generator-ignore
 .travis.yml
 README.md
 docs/AcceptedLanguageEnum.md
@@ -47,18 +46,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_accepted_language_enum.py
-test/test_array_of_city.py
-test/test_array_of_country.py
-test/test_array_of_languages.py
-test/test_array_of_study_domain.py
-test/test_cities_api.py
-test/test_city.py
-test/test_countries_api.py
-test/test_country.py
-test/test_error.py
-test/test_language.py
-test/test_languages_api.py
-test/test_study_domain.py
-test/test_study_domains_api.py
 tox.ini
