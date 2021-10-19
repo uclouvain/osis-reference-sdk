@@ -22,8 +22,8 @@ from osis_reference_sdk.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from osis_reference_sdk.model.accepted_language_enum import AcceptedLanguageEnum
-from osis_reference_sdk.model.array_of_city import ArrayOfCity
 from osis_reference_sdk.model.error import Error
+from osis_reference_sdk.model.paginated_city import PaginatedCity
 
 
 class CitiesApi(object):
@@ -53,8 +53,6 @@ class CitiesApi(object):
 
 
             Keyword Args:
-                limit (int): [optional]
-                offset (int): [optional]
                 search (str): [optional]
                 zip_code (str): [optional]
                 name (str): [optional]
@@ -64,6 +62,8 @@ class CitiesApi(object):
                 x_user_last_name (str): [optional]
                 x_user_email (str): [optional]
                 x_user_global_id (str): [optional]
+                limit (int): Limit of paginated results. [optional]
+                offset (int): Offset of paginated results. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -85,7 +85,7 @@ class CitiesApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ArrayOfCity
+                PaginatedCity
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -112,7 +112,7 @@ class CitiesApi(object):
 
         self.cities_list = _Endpoint(
             settings={
-                'response_type': (ArrayOfCity,),
+                'response_type': (PaginatedCity,),
                 'auth': [
                     'Token'
                 ],
@@ -123,8 +123,6 @@ class CitiesApi(object):
             },
             params_map={
                 'all': [
-                    'limit',
-                    'offset',
                     'search',
                     'zip_code',
                     'name',
@@ -134,6 +132,8 @@ class CitiesApi(object):
                     'x_user_last_name',
                     'x_user_email',
                     'x_user_global_id',
+                    'limit',
+                    'offset',
                 ],
                 'required': [],
                 'nullable': [
@@ -149,10 +149,6 @@ class CitiesApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'limit':
-                        (int,),
-                    'offset':
-                        (int,),
                     'search':
                         (str,),
                     'zip_code':
@@ -171,10 +167,12 @@ class CitiesApi(object):
                         (str,),
                     'x_user_global_id':
                         (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
                 },
                 'attribute_map': {
-                    'limit': 'limit',
-                    'offset': 'offset',
                     'search': 'search',
                     'zip_code': 'zip_code',
                     'name': 'name',
@@ -184,10 +182,10 @@ class CitiesApi(object):
                     'x_user_last_name': 'X-User-LastName',
                     'x_user_email': 'X-User-Email',
                     'x_user_global_id': 'X-User-GlobalID',
+                    'limit': 'limit',
+                    'offset': 'offset',
                 },
                 'location_map': {
-                    'limit': 'query',
-                    'offset': 'query',
                     'search': 'query',
                     'zip_code': 'query',
                     'name': 'query',
@@ -197,6 +195,8 @@ class CitiesApi(object):
                     'x_user_last_name': 'header',
                     'x_user_email': 'header',
                     'x_user_global_id': 'header',
+                    'limit': 'query',
+                    'offset': 'query',
                 },
                 'collection_format_map': {
                 }

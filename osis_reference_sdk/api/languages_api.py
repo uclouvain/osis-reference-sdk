@@ -22,8 +22,8 @@ from osis_reference_sdk.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from osis_reference_sdk.model.accepted_language_enum import AcceptedLanguageEnum
-from osis_reference_sdk.model.array_of_languages import ArrayOfLanguages
 from osis_reference_sdk.model.error import Error
+from osis_reference_sdk.model.paginated_language import PaginatedLanguage
 
 
 class LanguagesApi(object):
@@ -53,14 +53,14 @@ class LanguagesApi(object):
 
 
             Keyword Args:
-                limit (int): [optional]
-                offset (int): [optional]
                 search (str): [optional]
                 accept_language (AcceptedLanguageEnum): The header advertises which languages the client is able to understand, and which locale variant is preferred. (By languages, we mean natural languages, such as English, and not programming languages.) . [optional]
                 x_user_first_name (str): [optional]
                 x_user_last_name (str): [optional]
                 x_user_email (str): [optional]
                 x_user_global_id (str): [optional]
+                limit (int): Limit of paginated results. [optional]
+                offset (int): Offset of paginated results. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -82,7 +82,7 @@ class LanguagesApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ArrayOfLanguages
+                PaginatedLanguage
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -109,7 +109,7 @@ class LanguagesApi(object):
 
         self.languages_list = _Endpoint(
             settings={
-                'response_type': (ArrayOfLanguages,),
+                'response_type': (PaginatedLanguage,),
                 'auth': [
                     'Token'
                 ],
@@ -120,14 +120,14 @@ class LanguagesApi(object):
             },
             params_map={
                 'all': [
-                    'limit',
-                    'offset',
                     'search',
                     'accept_language',
                     'x_user_first_name',
                     'x_user_last_name',
                     'x_user_email',
                     'x_user_global_id',
+                    'limit',
+                    'offset',
                 ],
                 'required': [],
                 'nullable': [
@@ -143,10 +143,6 @@ class LanguagesApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'limit':
-                        (int,),
-                    'offset':
-                        (int,),
                     'search':
                         (str,),
                     'accept_language':
@@ -159,26 +155,30 @@ class LanguagesApi(object):
                         (str,),
                     'x_user_global_id':
                         (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
                 },
                 'attribute_map': {
-                    'limit': 'limit',
-                    'offset': 'offset',
                     'search': 'search',
                     'accept_language': 'Accept-Language',
                     'x_user_first_name': 'X-User-FirstName',
                     'x_user_last_name': 'X-User-LastName',
                     'x_user_email': 'X-User-Email',
                     'x_user_global_id': 'X-User-GlobalID',
+                    'limit': 'limit',
+                    'offset': 'offset',
                 },
                 'location_map': {
-                    'limit': 'query',
-                    'offset': 'query',
                     'search': 'query',
                     'accept_language': 'header',
                     'x_user_first_name': 'header',
                     'x_user_last_name': 'header',
                     'x_user_email': 'header',
                     'x_user_global_id': 'header',
+                    'limit': 'query',
+                    'offset': 'query',
                 },
                 'collection_format_map': {
                 }

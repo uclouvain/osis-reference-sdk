@@ -22,9 +22,9 @@ from osis_reference_sdk.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from osis_reference_sdk.model.accepted_language_enum import AcceptedLanguageEnum
-from osis_reference_sdk.model.array_of_country import ArrayOfCountry
 from osis_reference_sdk.model.country import Country
 from osis_reference_sdk.model.error import Error
+from osis_reference_sdk.model.paginated_country import PaginatedCountry
 
 
 class CountriesApi(object):
@@ -54,8 +54,6 @@ class CountriesApi(object):
 
 
             Keyword Args:
-                limit (int): [optional]
-                offset (int): [optional]
                 search (str): [optional]
                 iso_code (str): [optional]
                 name (str): [optional]
@@ -64,6 +62,8 @@ class CountriesApi(object):
                 x_user_last_name (str): [optional]
                 x_user_email (str): [optional]
                 x_user_global_id (str): [optional]
+                limit (int): Limit of paginated results. [optional]
+                offset (int): Offset of paginated results. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -85,7 +85,7 @@ class CountriesApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ArrayOfCountry
+                PaginatedCountry
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -112,7 +112,7 @@ class CountriesApi(object):
 
         self.countries_list = _Endpoint(
             settings={
-                'response_type': (ArrayOfCountry,),
+                'response_type': (PaginatedCountry,),
                 'auth': [
                     'Token'
                 ],
@@ -123,8 +123,6 @@ class CountriesApi(object):
             },
             params_map={
                 'all': [
-                    'limit',
-                    'offset',
                     'search',
                     'iso_code',
                     'name',
@@ -133,6 +131,8 @@ class CountriesApi(object):
                     'x_user_last_name',
                     'x_user_email',
                     'x_user_global_id',
+                    'limit',
+                    'offset',
                 ],
                 'required': [],
                 'nullable': [
@@ -148,10 +148,6 @@ class CountriesApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'limit':
-                        (int,),
-                    'offset':
-                        (int,),
                     'search':
                         (str,),
                     'iso_code':
@@ -168,10 +164,12 @@ class CountriesApi(object):
                         (str,),
                     'x_user_global_id':
                         (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
                 },
                 'attribute_map': {
-                    'limit': 'limit',
-                    'offset': 'offset',
                     'search': 'search',
                     'iso_code': 'iso_code',
                     'name': 'name',
@@ -180,10 +178,10 @@ class CountriesApi(object):
                     'x_user_last_name': 'X-User-LastName',
                     'x_user_email': 'X-User-Email',
                     'x_user_global_id': 'X-User-GlobalID',
+                    'limit': 'limit',
+                    'offset': 'offset',
                 },
                 'location_map': {
-                    'limit': 'query',
-                    'offset': 'query',
                     'search': 'query',
                     'iso_code': 'query',
                     'name': 'query',
@@ -192,6 +190,8 @@ class CountriesApi(object):
                     'x_user_last_name': 'header',
                     'x_user_email': 'header',
                     'x_user_global_id': 'header',
+                    'limit': 'query',
+                    'offset': 'query',
                 },
                 'collection_format_map': {
                 }

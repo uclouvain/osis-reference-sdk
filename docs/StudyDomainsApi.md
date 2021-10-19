@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **study_domains_list**
-> ArrayOfStudyDomain study_domains_list()
+> PaginatedStudyDomain study_domains_list()
 
 
 
@@ -21,7 +21,7 @@ Return a list of study domains. By default, it will return all official main stu
 import time
 import osis_reference_sdk
 from osis_reference_sdk.api import study_domains_api
-from osis_reference_sdk.model.array_of_study_domain import ArrayOfStudyDomain
+from osis_reference_sdk.model.paginated_study_domain import PaginatedStudyDomain
 from osis_reference_sdk.model.error import Error
 from osis_reference_sdk.model.accepted_language_enum import AcceptedLanguageEnum
 from pprint import pprint
@@ -46,8 +46,6 @@ configuration.api_key['Token'] = 'YOUR_API_KEY'
 with osis_reference_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = study_domains_api.StudyDomainsApi(api_client)
-    limit = 1 # int |  (optional)
-    offset = 1 # int |  (optional)
     search = "search_example" # str |  (optional)
     decree = "BEFORE_BOLOGNE" # str |  (optional)
     accept_language = AcceptedLanguageEnum("en") # AcceptedLanguageEnum | The header advertises which languages the client is able to understand, and which locale variant is preferred. (By languages, we mean natural languages, such as English, and not programming languages.)  (optional)
@@ -55,11 +53,13 @@ with osis_reference_sdk.ApiClient(configuration) as api_client:
     x_user_last_name = "X-User-LastName_example" # str |  (optional)
     x_user_email = "X-User-Email_example" # str |  (optional)
     x_user_global_id = "X-User-GlobalID_example" # str |  (optional)
+    limit = 25 # int | Limit of paginated results (optional)
+    offset = 25 # int | Offset of paginated results (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.study_domains_list(limit=limit, offset=offset, search=search, decree=decree, accept_language=accept_language, x_user_first_name=x_user_first_name, x_user_last_name=x_user_last_name, x_user_email=x_user_email, x_user_global_id=x_user_global_id)
+        api_response = api_instance.study_domains_list(search=search, decree=decree, accept_language=accept_language, x_user_first_name=x_user_first_name, x_user_last_name=x_user_last_name, x_user_email=x_user_email, x_user_global_id=x_user_global_id, limit=limit, offset=offset)
         pprint(api_response)
     except osis_reference_sdk.ApiException as e:
         print("Exception when calling StudyDomainsApi->study_domains_list: %s\n" % e)
@@ -70,8 +70,6 @@ with osis_reference_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int**|  | [optional]
- **offset** | **int**|  | [optional]
  **search** | **str**|  | [optional]
  **decree** | **str**|  | [optional]
  **accept_language** | **AcceptedLanguageEnum**| The header advertises which languages the client is able to understand, and which locale variant is preferred. (By languages, we mean natural languages, such as English, and not programming languages.)  | [optional]
@@ -79,10 +77,12 @@ Name | Type | Description  | Notes
  **x_user_last_name** | **str**|  | [optional]
  **x_user_email** | **str**|  | [optional]
  **x_user_global_id** | **str**|  | [optional]
+ **limit** | **int**| Limit of paginated results | [optional]
+ **offset** | **int**| Offset of paginated results | [optional]
 
 ### Return type
 
-[**ArrayOfStudyDomain**](ArrayOfStudyDomain.md)
+[**PaginatedStudyDomain**](PaginatedStudyDomain.md)
 
 ### Authorization
 

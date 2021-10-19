@@ -51,8 +51,8 @@ import osis_reference_sdk
 from pprint import pprint
 from osis_reference_sdk.api import cities_api
 from osis_reference_sdk.model.accepted_language_enum import AcceptedLanguageEnum
-from osis_reference_sdk.model.array_of_city import ArrayOfCity
 from osis_reference_sdk.model.error import Error
+from osis_reference_sdk.model.paginated_city import PaginatedCity
 # Defining the host is optional and defaults to https://dev.osis.uclouvain.be/api/v1/reference
 # See configuration.py for a list of all supported configuration parameters.
 configuration = osis_reference_sdk.Configuration(
@@ -75,9 +75,7 @@ configuration.api_key['Token'] = 'YOUR_API_KEY'
 with osis_reference_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cities_api.CitiesApi(api_client)
-    limit = 1 # int |  (optional)
-offset = 1 # int |  (optional)
-search = "search_example" # str |  (optional)
+    search = "search_example" # str |  (optional)
 zip_code = "zip_code_example" # str |  (optional)
 name = "name_example" # str |  (optional)
 country_iso_code = "country_iso_code_example" # str |  (optional)
@@ -86,9 +84,11 @@ x_user_first_name = "X-User-FirstName_example" # str |  (optional)
 x_user_last_name = "X-User-LastName_example" # str |  (optional)
 x_user_email = "X-User-Email_example" # str |  (optional)
 x_user_global_id = "X-User-GlobalID_example" # str |  (optional)
+limit = 25 # int | Limit of paginated results (optional)
+offset = 25 # int | Offset of paginated results (optional)
 
     try:
-        api_response = api_instance.cities_list(limit=limit, offset=offset, search=search, zip_code=zip_code, name=name, country_iso_code=country_iso_code, accept_language=accept_language, x_user_first_name=x_user_first_name, x_user_last_name=x_user_last_name, x_user_email=x_user_email, x_user_global_id=x_user_global_id)
+        api_response = api_instance.cities_list(search=search, zip_code=zip_code, name=name, country_iso_code=country_iso_code, accept_language=accept_language, x_user_first_name=x_user_first_name, x_user_last_name=x_user_last_name, x_user_email=x_user_email, x_user_global_id=x_user_global_id, limit=limit, offset=offset)
         pprint(api_response)
     except osis_reference_sdk.ApiException as e:
         print("Exception when calling CitiesApi->cities_list: %s\n" % e)
@@ -110,14 +110,19 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AcceptedLanguageEnum](docs/AcceptedLanguageEnum.md)
- - [ArrayOfCity](docs/ArrayOfCity.md)
- - [ArrayOfCountry](docs/ArrayOfCountry.md)
- - [ArrayOfLanguages](docs/ArrayOfLanguages.md)
- - [ArrayOfStudyDomain](docs/ArrayOfStudyDomain.md)
  - [City](docs/City.md)
  - [Country](docs/Country.md)
  - [Error](docs/Error.md)
  - [Language](docs/Language.md)
+ - [PaginatedCity](docs/PaginatedCity.md)
+ - [PaginatedCityAllOf](docs/PaginatedCityAllOf.md)
+ - [PaginatedCountry](docs/PaginatedCountry.md)
+ - [PaginatedCountryAllOf](docs/PaginatedCountryAllOf.md)
+ - [PaginatedLanguage](docs/PaginatedLanguage.md)
+ - [PaginatedLanguageAllOf](docs/PaginatedLanguageAllOf.md)
+ - [PaginatedStudyDomain](docs/PaginatedStudyDomain.md)
+ - [PaginatedStudyDomainAllOf](docs/PaginatedStudyDomainAllOf.md)
+ - [Paging](docs/Paging.md)
  - [StudyDomain](docs/StudyDomain.md)
 
 

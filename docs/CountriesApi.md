@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **countries_list**
-> ArrayOfCountry countries_list()
+> PaginatedCountry countries_list()
 
 
 
@@ -22,7 +22,7 @@ Return a list of countries with optional filtering.
 import time
 import osis_reference_sdk
 from osis_reference_sdk.api import countries_api
-from osis_reference_sdk.model.array_of_country import ArrayOfCountry
+from osis_reference_sdk.model.paginated_country import PaginatedCountry
 from osis_reference_sdk.model.error import Error
 from osis_reference_sdk.model.accepted_language_enum import AcceptedLanguageEnum
 from pprint import pprint
@@ -47,8 +47,6 @@ configuration.api_key['Token'] = 'YOUR_API_KEY'
 with osis_reference_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = countries_api.CountriesApi(api_client)
-    limit = 1 # int |  (optional)
-    offset = 1 # int |  (optional)
     search = "search_example" # str |  (optional)
     iso_code = "iso_code_example" # str |  (optional)
     name = "name_example" # str |  (optional)
@@ -57,11 +55,13 @@ with osis_reference_sdk.ApiClient(configuration) as api_client:
     x_user_last_name = "X-User-LastName_example" # str |  (optional)
     x_user_email = "X-User-Email_example" # str |  (optional)
     x_user_global_id = "X-User-GlobalID_example" # str |  (optional)
+    limit = 25 # int | Limit of paginated results (optional)
+    offset = 25 # int | Offset of paginated results (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.countries_list(limit=limit, offset=offset, search=search, iso_code=iso_code, name=name, accept_language=accept_language, x_user_first_name=x_user_first_name, x_user_last_name=x_user_last_name, x_user_email=x_user_email, x_user_global_id=x_user_global_id)
+        api_response = api_instance.countries_list(search=search, iso_code=iso_code, name=name, accept_language=accept_language, x_user_first_name=x_user_first_name, x_user_last_name=x_user_last_name, x_user_email=x_user_email, x_user_global_id=x_user_global_id, limit=limit, offset=offset)
         pprint(api_response)
     except osis_reference_sdk.ApiException as e:
         print("Exception when calling CountriesApi->countries_list: %s\n" % e)
@@ -72,8 +72,6 @@ with osis_reference_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int**|  | [optional]
- **offset** | **int**|  | [optional]
  **search** | **str**|  | [optional]
  **iso_code** | **str**|  | [optional]
  **name** | **str**|  | [optional]
@@ -82,10 +80,12 @@ Name | Type | Description  | Notes
  **x_user_last_name** | **str**|  | [optional]
  **x_user_email** | **str**|  | [optional]
  **x_user_global_id** | **str**|  | [optional]
+ **limit** | **int**| Limit of paginated results | [optional]
+ **offset** | **int**| Offset of paginated results | [optional]
 
 ### Return type
 
-[**ArrayOfCountry**](ArrayOfCountry.md)
+[**PaginatedCountry**](PaginatedCountry.md)
 
 ### Authorization
 

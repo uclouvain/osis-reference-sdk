@@ -22,8 +22,8 @@ from osis_reference_sdk.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from osis_reference_sdk.model.accepted_language_enum import AcceptedLanguageEnum
-from osis_reference_sdk.model.array_of_study_domain import ArrayOfStudyDomain
 from osis_reference_sdk.model.error import Error
+from osis_reference_sdk.model.paginated_study_domain import PaginatedStudyDomain
 
 
 class StudyDomainsApi(object):
@@ -53,8 +53,6 @@ class StudyDomainsApi(object):
 
 
             Keyword Args:
-                limit (int): [optional]
-                offset (int): [optional]
                 search (str): [optional]
                 decree (str): [optional]
                 accept_language (AcceptedLanguageEnum): The header advertises which languages the client is able to understand, and which locale variant is preferred. (By languages, we mean natural languages, such as English, and not programming languages.) . [optional]
@@ -62,6 +60,8 @@ class StudyDomainsApi(object):
                 x_user_last_name (str): [optional]
                 x_user_email (str): [optional]
                 x_user_global_id (str): [optional]
+                limit (int): Limit of paginated results. [optional]
+                offset (int): Offset of paginated results. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -83,7 +83,7 @@ class StudyDomainsApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                ArrayOfStudyDomain
+                PaginatedStudyDomain
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -110,7 +110,7 @@ class StudyDomainsApi(object):
 
         self.study_domains_list = _Endpoint(
             settings={
-                'response_type': (ArrayOfStudyDomain,),
+                'response_type': (PaginatedStudyDomain,),
                 'auth': [
                     'Token'
                 ],
@@ -121,8 +121,6 @@ class StudyDomainsApi(object):
             },
             params_map={
                 'all': [
-                    'limit',
-                    'offset',
                     'search',
                     'decree',
                     'accept_language',
@@ -130,6 +128,8 @@ class StudyDomainsApi(object):
                     'x_user_last_name',
                     'x_user_email',
                     'x_user_global_id',
+                    'limit',
+                    'offset',
                 ],
                 'required': [],
                 'nullable': [
@@ -152,10 +152,6 @@ class StudyDomainsApi(object):
                     },
                 },
                 'openapi_types': {
-                    'limit':
-                        (int,),
-                    'offset':
-                        (int,),
                     'search':
                         (str,),
                     'decree':
@@ -170,10 +166,12 @@ class StudyDomainsApi(object):
                         (str,),
                     'x_user_global_id':
                         (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
                 },
                 'attribute_map': {
-                    'limit': 'limit',
-                    'offset': 'offset',
                     'search': 'search',
                     'decree': 'decree',
                     'accept_language': 'Accept-Language',
@@ -181,10 +179,10 @@ class StudyDomainsApi(object):
                     'x_user_last_name': 'X-User-LastName',
                     'x_user_email': 'X-User-Email',
                     'x_user_global_id': 'X-User-GlobalID',
+                    'limit': 'limit',
+                    'offset': 'offset',
                 },
                 'location_map': {
-                    'limit': 'query',
-                    'offset': 'query',
                     'search': 'query',
                     'decree': 'query',
                     'accept_language': 'header',
@@ -192,6 +190,8 @@ class StudyDomainsApi(object):
                     'x_user_last_name': 'header',
                     'x_user_email': 'header',
                     'x_user_global_id': 'header',
+                    'limit': 'query',
+                    'offset': 'query',
                 },
                 'collection_format_map': {
                 }
