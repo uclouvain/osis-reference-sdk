@@ -49,10 +49,10 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import time
 import osis_reference_sdk
 from pprint import pprint
-from osis_reference_sdk.api import cities_api
+from osis_reference_sdk.api import academic_years_api
 from osis_reference_sdk.model.accepted_language_enum import AcceptedLanguageEnum
 from osis_reference_sdk.model.error import Error
-from osis_reference_sdk.model.paginated_city import PaginatedCity
+from osis_reference_sdk.model.paginated_academic_years import PaginatedAcademicYears
 # Defining the host is optional and defaults to https://dev.osis.uclouvain.be/api/v1/reference
 # See configuration.py for a list of all supported configuration parameters.
 configuration = osis_reference_sdk.Configuration(
@@ -74,12 +74,8 @@ configuration.api_key['Token'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with osis_reference_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cities_api.CitiesApi(api_client)
-    search = "search_example" # str |  (optional)
-zip_code = "zip_code_example" # str |  (optional)
-name = "name_example" # str |  (optional)
-country_iso_code = "country_iso_code_example" # str |  (optional)
-accept_language = AcceptedLanguageEnum("en") # AcceptedLanguageEnum | The header advertises which languages the client is able to understand, and which locale variant is preferred. (By languages, we mean natural languages, such as English, and not programming languages.)  (optional)
+    api_instance = academic_years_api.AcademicYearsApi(api_client)
+    accept_language = AcceptedLanguageEnum("en") # AcceptedLanguageEnum | The header advertises which languages the client is able to understand, and which locale variant is preferred. (By languages, we mean natural languages, such as English, and not programming languages.)  (optional)
 x_user_first_name = "X-User-FirstName_example" # str |  (optional)
 x_user_last_name = "X-User-LastName_example" # str |  (optional)
 x_user_email = "X-User-Email_example" # str |  (optional)
@@ -88,10 +84,10 @@ limit = 25 # int | Limit of paginated results (optional)
 offset = 25 # int | Offset of paginated results (optional)
 
     try:
-        api_response = api_instance.cities_list(search=search, zip_code=zip_code, name=name, country_iso_code=country_iso_code, accept_language=accept_language, x_user_first_name=x_user_first_name, x_user_last_name=x_user_last_name, x_user_email=x_user_email, x_user_global_id=x_user_global_id, limit=limit, offset=offset)
+        api_response = api_instance.get_academic_years(accept_language=accept_language, x_user_first_name=x_user_first_name, x_user_last_name=x_user_last_name, x_user_email=x_user_email, x_user_global_id=x_user_global_id, limit=limit, offset=offset)
         pprint(api_response)
     except osis_reference_sdk.ApiException as e:
-        print("Exception when calling CitiesApi->cities_list: %s\n" % e)
+        print("Exception when calling AcademicYearsApi->get_academic_years: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -100,6 +96,7 @@ All URIs are relative to *https://dev.osis.uclouvain.be/api/v1/reference*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AcademicYearsApi* | [**get_academic_years**](docs/AcademicYearsApi.md#get_academic_years) | **GET** /academic_years | 
 *CitiesApi* | [**cities_list**](docs/CitiesApi.md#cities_list) | **GET** /cities/ | 
 *CountriesApi* | [**countries_list**](docs/CountriesApi.md#countries_list) | **GET** /countries/ | 
 *CountriesApi* | [**countries_read**](docs/CountriesApi.md#countries_read) | **GET** /countries/{uuid} | 
@@ -109,11 +106,14 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AcademicYear](docs/AcademicYear.md)
  - [AcceptedLanguageEnum](docs/AcceptedLanguageEnum.md)
  - [City](docs/City.md)
  - [Country](docs/Country.md)
  - [Error](docs/Error.md)
  - [Language](docs/Language.md)
+ - [PaginatedAcademicYears](docs/PaginatedAcademicYears.md)
+ - [PaginatedAcademicYearsAllOf](docs/PaginatedAcademicYearsAllOf.md)
  - [PaginatedCity](docs/PaginatedCity.md)
  - [PaginatedCityAllOf](docs/PaginatedCityAllOf.md)
  - [PaginatedCountry](docs/PaginatedCountry.md)

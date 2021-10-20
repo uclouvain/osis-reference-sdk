@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.cities_api import CitiesApi
+#   from .api.academic_years_api import AcademicYearsApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,6 +14,7 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
+from osis_reference_sdk.api.academic_years_api import AcademicYearsApi
 from osis_reference_sdk.api.cities_api import CitiesApi
 from osis_reference_sdk.api.countries_api import CountriesApi
 from osis_reference_sdk.api.languages_api import LanguagesApi

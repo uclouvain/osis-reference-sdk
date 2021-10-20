@@ -9,11 +9,14 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from osis_reference_sdk.model.academic_year import AcademicYear
 from osis_reference_sdk.model.accepted_language_enum import AcceptedLanguageEnum
 from osis_reference_sdk.model.city import City
 from osis_reference_sdk.model.country import Country
 from osis_reference_sdk.model.error import Error
 from osis_reference_sdk.model.language import Language
+from osis_reference_sdk.model.paginated_academic_years import PaginatedAcademicYears
+from osis_reference_sdk.model.paginated_academic_years_all_of import PaginatedAcademicYearsAllOf
 from osis_reference_sdk.model.paginated_city import PaginatedCity
 from osis_reference_sdk.model.paginated_city_all_of import PaginatedCityAllOf
 from osis_reference_sdk.model.paginated_country import PaginatedCountry
