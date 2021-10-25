@@ -96,7 +96,6 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized |  -  |
-**404** | The specified resource was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

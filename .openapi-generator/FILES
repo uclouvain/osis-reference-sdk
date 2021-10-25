@@ -64,8 +64,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_academic_year.py
-test/test_academic_years_api.py
-test/test_paginated_academic_years.py
-test/test_paginated_academic_years_all_of.py
 tox.ini
