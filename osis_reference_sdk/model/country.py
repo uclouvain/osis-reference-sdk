@@ -86,7 +86,7 @@ class Country(ModelNormal):
             'iso_code': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'name_en': (str,),  # noqa: E501
-            'nationality': (str,),  # noqa: E501
+            'nationality': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -149,7 +149,7 @@ class Country(ModelNormal):
             iso_code (str): The country code according to ISO 3166-1 specification . [optional]  # noqa: E501
             name (str): The french name of the country. [optional]  # noqa: E501
             name_en (str): The english name of the country. [optional]  # noqa: E501
-            nationality (str): The nationality of the country. [optional]  # noqa: E501
+            nationality (str, none_type): The nationality of the country. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -236,7 +236,7 @@ class Country(ModelNormal):
             iso_code (str): The country code according to ISO 3166-1 specification . [optional]  # noqa: E501
             name (str): The french name of the country. [optional]  # noqa: E501
             name_en (str): The english name of the country. [optional]  # noqa: E501
-            nationality (str): The nationality of the country. [optional]  # noqa: E501
+            nationality (str, none_type): The nationality of the country. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
