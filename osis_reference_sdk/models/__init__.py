@@ -9,6 +9,7 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from osis_reference_sdk.model.academic_calendar import AcademicCalendar
 from osis_reference_sdk.model.academic_year import AcademicYear
 from osis_reference_sdk.model.accepted_language_enum import AcceptedLanguageEnum
 from osis_reference_sdk.model.city import City

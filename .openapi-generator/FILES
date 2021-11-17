@@ -2,6 +2,8 @@
 .gitlab-ci.yml
 .travis.yml
 README.md
+docs/AcademicCalendar.md
+docs/AcademicCalendarsApi.md
 docs/AcademicYear.md
 docs/AcademicYearsApi.md
 docs/AcceptedLanguageEnum.md
@@ -28,6 +30,7 @@ docs/StudyDomainsApi.md
 git_push.sh
 osis_reference_sdk/__init__.py
 osis_reference_sdk/api/__init__.py
+osis_reference_sdk/api/academic_calendars_api.py
 osis_reference_sdk/api/academic_years_api.py
 osis_reference_sdk/api/cities_api.py
 osis_reference_sdk/api/countries_api.py
@@ -38,6 +41,7 @@ osis_reference_sdk/apis/__init__.py
 osis_reference_sdk/configuration.py
 osis_reference_sdk/exceptions.py
 osis_reference_sdk/model/__init__.py
+osis_reference_sdk/model/academic_calendar.py
 osis_reference_sdk/model/academic_year.py
 osis_reference_sdk/model/accepted_language_enum.py
 osis_reference_sdk/model/city.py
@@ -64,4 +68,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_academic_calendar.py
+test/test_academic_calendars_api.py
 tox.ini
