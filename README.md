@@ -50,9 +50,9 @@ import time
 import osis_reference_sdk
 from pprint import pprint
 from osis_reference_sdk.api import academic_calendars_api
-from osis_reference_sdk.model.academic_calendar import AcademicCalendar
 from osis_reference_sdk.model.accepted_language_enum import AcceptedLanguageEnum
 from osis_reference_sdk.model.error import Error
+from osis_reference_sdk.model.paginated_academic_calendars import PaginatedAcademicCalendars
 # Defining the host is optional and defaults to https://dev.osis.uclouvain.be/api/v1/reference
 # See configuration.py for a list of all supported configuration parameters.
 configuration = osis_reference_sdk.Configuration(
@@ -82,9 +82,11 @@ x_user_first_name = "X-User-FirstName_example" # str |  (optional)
 x_user_last_name = "X-User-LastName_example" # str |  (optional)
 x_user_email = "X-User-Email_example" # str |  (optional)
 x_user_global_id = "X-User-GlobalID_example" # str |  (optional)
+limit = 25 # int | Limit of paginated results (optional)
+offset = 25 # int | Offset of paginated results (optional)
 
     try:
-        api_response = api_instance.academic_calendars_list(data_year=data_year, reference=reference, accept_language=accept_language, x_user_first_name=x_user_first_name, x_user_last_name=x_user_last_name, x_user_email=x_user_email, x_user_global_id=x_user_global_id)
+        api_response = api_instance.academic_calendars_list(data_year=data_year, reference=reference, accept_language=accept_language, x_user_first_name=x_user_first_name, x_user_last_name=x_user_last_name, x_user_email=x_user_email, x_user_global_id=x_user_global_id, limit=limit, offset=offset)
         pprint(api_response)
     except osis_reference_sdk.ApiException as e:
         print("Exception when calling AcademicCalendarsApi->academic_calendars_list: %s\n" % e)
@@ -114,6 +116,8 @@ Class | Method | HTTP request | Description
  - [Country](docs/Country.md)
  - [Error](docs/Error.md)
  - [Language](docs/Language.md)
+ - [PaginatedAcademicCalendars](docs/PaginatedAcademicCalendars.md)
+ - [PaginatedAcademicCalendarsAllOf](docs/PaginatedAcademicCalendarsAllOf.md)
  - [PaginatedAcademicYears](docs/PaginatedAcademicYears.md)
  - [PaginatedAcademicYearsAllOf](docs/PaginatedAcademicYearsAllOf.md)
  - [PaginatedCity](docs/PaginatedCity.md)

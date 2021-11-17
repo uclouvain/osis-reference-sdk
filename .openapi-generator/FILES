@@ -14,6 +14,8 @@ docs/Country.md
 docs/Error.md
 docs/Language.md
 docs/LanguagesApi.md
+docs/PaginatedAcademicCalendars.md
+docs/PaginatedAcademicCalendarsAllOf.md
 docs/PaginatedAcademicYears.md
 docs/PaginatedAcademicYearsAllOf.md
 docs/PaginatedCity.md
@@ -48,6 +50,8 @@ osis_reference_sdk/model/city.py
 osis_reference_sdk/model/country.py
 osis_reference_sdk/model/error.py
 osis_reference_sdk/model/language.py
+osis_reference_sdk/model/paginated_academic_calendars.py
+osis_reference_sdk/model/paginated_academic_calendars_all_of.py
 osis_reference_sdk/model/paginated_academic_years.py
 osis_reference_sdk/model/paginated_academic_years_all_of.py
 osis_reference_sdk/model/paginated_city.py
@@ -68,6 +72,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_academic_calendar.py
-test/test_academic_calendars_api.py
+test/test_paginated_academic_calendars.py
+test/test_paginated_academic_calendars_all_of.py
 tox.ini

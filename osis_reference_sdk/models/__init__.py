@@ -16,6 +16,8 @@ from osis_reference_sdk.model.city import City
 from osis_reference_sdk.model.country import Country
 from osis_reference_sdk.model.error import Error
 from osis_reference_sdk.model.language import Language
+from osis_reference_sdk.model.paginated_academic_calendars import PaginatedAcademicCalendars
+from osis_reference_sdk.model.paginated_academic_calendars_all_of import PaginatedAcademicCalendarsAllOf
 from osis_reference_sdk.model.paginated_academic_years import PaginatedAcademicYears
 from osis_reference_sdk.model.paginated_academic_years_all_of import PaginatedAcademicYearsAllOf
 from osis_reference_sdk.model.paginated_city import PaginatedCity

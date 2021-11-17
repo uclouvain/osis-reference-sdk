@@ -21,9 +21,9 @@ from osis_reference_sdk.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from osis_reference_sdk.model.academic_calendar import AcademicCalendar
 from osis_reference_sdk.model.accepted_language_enum import AcceptedLanguageEnum
 from osis_reference_sdk.model.error import Error
+from osis_reference_sdk.model.paginated_academic_calendars import PaginatedAcademicCalendars
 
 
 class AcademicCalendarsApi(object):
@@ -60,6 +60,8 @@ class AcademicCalendarsApi(object):
                 x_user_last_name (str): [optional]
                 x_user_email (str): [optional]
                 x_user_global_id (str): [optional]
+                limit (int): Limit of paginated results. [optional]
+                offset (int): Offset of paginated results. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -81,7 +83,7 @@ class AcademicCalendarsApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                [AcademicCalendar]
+                PaginatedAcademicCalendars
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -108,7 +110,7 @@ class AcademicCalendarsApi(object):
 
         self.academic_calendars_list = _Endpoint(
             settings={
-                'response_type': ([AcademicCalendar],),
+                'response_type': (PaginatedAcademicCalendars,),
                 'auth': [
                     'Token'
                 ],
@@ -126,6 +128,8 @@ class AcademicCalendarsApi(object):
                     'x_user_last_name',
                     'x_user_email',
                     'x_user_global_id',
+                    'limit',
+                    'offset',
                 ],
                 'required': [],
                 'nullable': [
@@ -155,6 +159,10 @@ class AcademicCalendarsApi(object):
                         (str,),
                     'x_user_global_id':
                         (str,),
+                    'limit':
+                        (int,),
+                    'offset':
+                        (int,),
                 },
                 'attribute_map': {
                     'data_year': 'data_year',
@@ -164,6 +172,8 @@ class AcademicCalendarsApi(object):
                     'x_user_last_name': 'X-User-LastName',
                     'x_user_email': 'X-User-Email',
                     'x_user_global_id': 'X-User-GlobalID',
+                    'limit': 'limit',
+                    'offset': 'offset',
                 },
                 'location_map': {
                     'data_year': 'query',
@@ -173,6 +183,8 @@ class AcademicCalendarsApi(object):
                     'x_user_last_name': 'header',
                     'x_user_email': 'header',
                     'x_user_global_id': 'header',
+                    'limit': 'query',
+                    'offset': 'query',
                 },
                 'collection_format_map': {
                 }
