@@ -72,6 +72,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_paginated_academic_calendars.py
-test/test_paginated_academic_calendars_all_of.py
 tox.ini
