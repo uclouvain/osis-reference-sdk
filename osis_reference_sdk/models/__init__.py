@@ -1,0 +1,58 @@
+# flake8: noqa
+
+# import all models into this package
+# if you have many models here with many references from one model to another this may
+# raise a RecursionError
+# to avoid this, import only the models that you directly need like:
+# from from osis_reference_sdk.model.pet import Pet
+# or import this package, but before doing it, use:
+# import sys
+# sys.setrecursionlimit(n)
+
+from osis_reference_sdk.model.accepted_language_enum import AcceptedLanguageEnum
+from osis_reference_sdk.model.action_link import ActionLink
+from osis_reference_sdk.model.actor_type import ActorType
+from osis_reference_sdk.model.admission_type import AdmissionType
+from osis_reference_sdk.model.approuver_proposition_command import ApprouverPropositionCommand
+from osis_reference_sdk.model.belgian_communities_of_education import BelgianCommunitiesOfEducation
+from osis_reference_sdk.model.choix_commission_proximite import ChoixCommissionProximite
+from osis_reference_sdk.model.choix_doctorat_deja_realise import ChoixDoctoratDejaRealise
+from osis_reference_sdk.model.choix_langue_redaction_these import ChoixLangueRedactionThese
+from osis_reference_sdk.model.completer_proposition_command import CompleterPropositionCommand
+from osis_reference_sdk.model.coordonnees import Coordonnees
+from osis_reference_sdk.model.coordonnees_contact import CoordonneesContact
+from osis_reference_sdk.model.cotutelle_dto import CotutelleDTO
+from osis_reference_sdk.model.definir_cotutelle_command import DefinirCotutelleCommand
+from osis_reference_sdk.model.diploma_results import DiplomaResults
+from osis_reference_sdk.model.doctorat_dto import DoctoratDTO
+from osis_reference_sdk.model.educational_type import EducationalType
+from osis_reference_sdk.model.equivalence import Equivalence
+from osis_reference_sdk.model.error import Error
+from osis_reference_sdk.model.foreign_diploma_types import ForeignDiplomaTypes
+from osis_reference_sdk.model.high_school_diploma import HighSchoolDiploma
+from osis_reference_sdk.model.high_school_diploma_belgian_diploma import HighSchoolDiplomaBelgianDiploma
+from osis_reference_sdk.model.high_school_diploma_belgian_diploma_schedule import HighSchoolDiplomaBelgianDiplomaSchedule
+from osis_reference_sdk.model.high_school_diploma_foreign_diploma import HighSchoolDiplomaForeignDiploma
+from osis_reference_sdk.model.initier_proposition_command import InitierPropositionCommand
+from osis_reference_sdk.model.inline_response200 import InlineResponse200
+from osis_reference_sdk.model.inline_response2001 import InlineResponse2001
+from osis_reference_sdk.model.inline_response2002 import InlineResponse2002
+from osis_reference_sdk.model.language_knowledge import LanguageKnowledge
+from osis_reference_sdk.model.language_knowledge_grade import LanguageKnowledgeGrade
+from osis_reference_sdk.model.person import Person
+from osis_reference_sdk.model.person_identification import PersonIdentification
+from osis_reference_sdk.model.proposition_dto import PropositionDTO
+from osis_reference_sdk.model.proposition_dto_links import PropositionDTOLinks
+from osis_reference_sdk.model.proposition_identity_dto import PropositionIdentityDTO
+from osis_reference_sdk.model.proposition_search import PropositionSearch
+from osis_reference_sdk.model.proposition_search_links import PropositionSearchLinks
+from osis_reference_sdk.model.proposition_search_links1 import PropositionSearchLinks1
+from osis_reference_sdk.model.proposition_search_propositions import PropositionSearchPropositions
+from osis_reference_sdk.model.refuser_proposition_command import RefuserPropositionCommand
+from osis_reference_sdk.model.sector_dto import SectorDTO
+from osis_reference_sdk.model.supervision_actor import SupervisionActor
+from osis_reference_sdk.model.supervision_dto import SupervisionDTO
+from osis_reference_sdk.model.supervision_dto_promoteur import SupervisionDTOPromoteur
+from osis_reference_sdk.model.supervision_dto_signatures_membres_ca import SupervisionDTOSignaturesMembresCA
+from osis_reference_sdk.model.supervision_dto_signatures_promoteurs import SupervisionDTOSignaturesPromoteurs
+from osis_reference_sdk.model.tutor import Tutor
