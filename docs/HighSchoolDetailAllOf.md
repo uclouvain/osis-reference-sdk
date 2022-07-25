@@ -1,0 +1,15 @@
+# HighSchoolDetailAllOf
+
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**start_date** | **date** |  | [optional] 
+**end_date** | **date, none_type** |  | [optional] 
+**linguistic_regime** | **str, none_type** | The linguistic regime of the high school (iso code format) | [optional] 
+**country** | **str** | The country code (of the high school) according to ISO 3166-1 specification | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
